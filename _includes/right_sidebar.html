@@ -1,0 +1,10 @@
+<div class="page_sidebar right_sidebar">
+  <ul>
+    <h2>TITLES:</h2>
+  {% for item in page.titles %}
+  <li>
+    <a href="#{{item | split: ' ' | join: '-' | downcase | remove: '/'}}">{{item}}</a>
+  </li>
+  {% endfor %}
+</ul>
+</div>
