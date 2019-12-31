@@ -9,7 +9,7 @@ languages: ["en"]
     {% assign lang = site.lang %}
     <h2>Latest posts</h2>
     <ul class="post-list">
-      {%- assign date_format = site.data[lang].config.date_format -%}
+      {%- assign date_format = site.date_format -%}
        {%- for post in site.posts -%}
       <li>
         <span class="post-meta">{{ post.date | date_to_string: date_format }}</span>

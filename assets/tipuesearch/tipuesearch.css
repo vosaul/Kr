@@ -14,7 +14,7 @@ http://www.tipue.com/search
 
 #tipue_search_input
 {
-     float: left;
+     float: right;
      font: 15px 'Open Sans', sans-serif;
      color: #333;     
      -webkit-font-smoothing: antialiased;
@@ -41,7 +41,7 @@ http://www.tipue.com/search
 .tipue_search_button
 {
      position: relative;
-     float: left;
+     float: right;
      width: 49px;
      height: 56px;
      margin-left: -3px;
@@ -55,7 +55,7 @@ http://www.tipue.com/search
 }
 .tipue_search_icon
 {
-     float: left;
+     float: right;
      font: 24px/1 'Open Sans', sans-serif;
      -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -81,8 +81,18 @@ http://www.tipue.com/search
 
 #tipue_search_content
 {
-     max-width: 100%;
-	margin: 0;
+         position: absolute;
+    z-index: 2;
+    top: 55px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 410px;
+    max-height: 450px;
+    border: rgba(39, 40, 44, 0.20) solid 1px;
+    background-color: #ffffff;
 }
 .tipue_search_content_title
 {
