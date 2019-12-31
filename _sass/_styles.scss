@@ -16,6 +16,10 @@
     }
   }
 }
+.top_form {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+}
 .page-content {
   display: grid;
   display: -ms-grid;
