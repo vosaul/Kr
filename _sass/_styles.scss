@@ -1,26 +1,45 @@
+body {
+  display: grid;
+  grid-template-rows: 70px 1fr;
+}
 .hidden {
   display: none;
 }
 .top_header {
+  z-index: 100;
   width: 100%;
+  height: 70px;
   position: fixed;
   background: #fff;
   border-bottom: 1px solid #bbb;
-  div {
-    width: 100%;
-    display: flex;
-    padding: 20px;
-    justify-content: space-between;
-    * {
-      display: block;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  .logo {
+    justify-self: center;
+  }
+  .top_search {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    align-items: center;
+    justify-content: center;
+    width: 430px;
+    justify-self: end;
+    margin-right: 5%;
+    #tipue_search_input {
+      height: 30px;
+      width: 100%;
+    }
+    .tipue_search_icon {
+      width: 40px;
+      vertical-align: middle;
+      margin: 0 10px;
     }
   }
 }
-.top_form {
-  display: grid;
-  grid-template-columns: 20px 1fr;
-}
+
 .page-content {
+  padding: 0;
   display: grid;
   display: -ms-grid;
   grid-template-columns: 2fr 5fr 3fr;
@@ -58,7 +77,8 @@
     margin-top: 48px;
     max-width: 540px;
   }
-  p, li {
+  p,
+  li {
     letter-spacing: normal;
     color: rgba(39, 40, 44, 0.7);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
@@ -95,4 +115,16 @@
 }
 .right_sidebar {
   border-left: 1px solid #bbb;
+}
+footer {
+  height: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 57px;
+  align-items: center;
+  justify-items: center;
+  font-size: 15px;
+  font-weight: 400;
+  border-top: 1px solid #aaa;
+  background: #eee;
 }
