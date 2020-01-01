@@ -1,8 +1,10 @@
 ---
 layout: post
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae felis vitae leo ornare auctor. Aenean nec magna elementum, euismod lectus et, commodo magna. Nunc eget urna in nisl tempor rutrum a in augue.
 titles:
 - Sources for markdown
 - Heading One
+tags: [markdown, source]
 tipue_search_active: true
 exclude_from_search: false
 ---

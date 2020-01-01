@@ -1,5 +1,6 @@
 ---
 layout: post
+description: Markdown Here is a Google Chrome, Firefox, Safari, Opera, and Thunderbird extension that lets you write email<sup>&dagger;</sup> in Markdown<sup>&Dagger;</sup> and render them before sending. It also supports syntax highlighting (just specify the language in a fenced code block).
 titles:
 - Markdown Here
 - Table of Contents
@@ -10,8 +11,8 @@ titles:
 - Next Steps
 tipue_search_active: true
 exclude_from_search: false
+tags: [markdown, opera, github] 
 ---
-# Markdown Here
 
 [**Visit the website.**](http://markdown-here.com)<br>
 [**Get it for Chrome.**](https://chrome.google.com/webstore/detail/elifhakcjgalahccnjkneoccemfahfoa)<br>
