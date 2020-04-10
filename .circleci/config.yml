@@ -13,7 +13,7 @@ jobs:
           name: install bundler
           command: gem install bundler
       - run: 
-          name: jekyll -b
+          name: jekyll -v
           command: jekyll -b          
       - run:
           name: bundler update
