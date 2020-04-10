@@ -22,5 +22,5 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
         bundle update
-        jekyll -b
+        jekyll --help
         
