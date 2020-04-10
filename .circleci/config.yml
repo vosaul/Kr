@@ -15,8 +15,8 @@ jobs:
             - rubygems-v1-{{ checksum "Gemfile.lock" }}
             - rubygems-v1-fallback
       - run:
-          name: Yarn? 
-          command: yarn help
+          name: Install AWS CLI
+          command: pip install aerobatic-cli -g            
       - run:
           name: Bundle Install
           command: bundle check || bundle install
@@ -36,9 +36,9 @@ jobs:
           paths:
             - _site
 
-      - run:
-          name: Aerobatic install
-          command: npm install aerobatic-cli -g
+#      - run:
+#          name: Aerobatic install
+#          command: npm install aerobatic-cli -g
       - run:
           name: Deploing to Aerobatic 
           command: aero deploy    --directory _site
