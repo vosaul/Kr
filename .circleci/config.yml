@@ -1,14 +1,14 @@
-version: 2.1
-orbs:
-  ruby: circleci/ruby@0.1.2 
-
-jobs:
-  build:
-    docker:
-      - image: circleci/ruby:2.6.3-stretch-node
-    executor: ruby/default
-    steps:
-      - checkout
+#version: 2.1
+#orbs:
+#  ruby: circleci/ruby@0.1.2 
+#
+#jobs:
+#  build:
+#    docker:
+#      - image: circleci/ruby:2.6.3-stretch-node
+#    executor: ruby/default
+#    steps:
+#      - checkout
 #      - run:
 #          name: install bundler
 #          command: gem install bundler
@@ -24,17 +24,17 @@ jobs:
 #          command: bundle -v
 #
 #      - ruby/bundle-install
-#machine:
-#  environment:
-#    NOKOGIRI_USE_SYSTEM_LIBRARIES: true # speeds up installation of html-proofer
+machine:
+  environment:
+    NOKOGIRI_USE_SYSTEM_LIBRARIES: true # speeds up installation of html-proofer
 
 dependencies:
   post:
     - bundle exec jekyll build
 
-#test:
-#  post:
-#    - bundle exec htmlproofer ./_site --allow-hash-href --check-favicon --check-html --disable-external
+test:
+  post:
+    - bundle exec htmlproofer ./_site --allow-hash-href --check-favicon --check-html --disable-external
 
 deployment:
   prod:
