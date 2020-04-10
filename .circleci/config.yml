@@ -12,13 +12,14 @@ jobs:
       - run:
           name: install bundler
           command: gem install bundler
+      - run: 
+          name: jekyll -b
+          command: jekyll -b          
       - run:
           name: bundler update
           command: bundler update
       - run:
           name: Which bundler?
           command: bundle -v
-      - run: 
-          name: jekyll -b
-          command: jekyll -b
+
       - ruby/bundle-install
