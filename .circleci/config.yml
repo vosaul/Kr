@@ -18,7 +18,7 @@ jobs:
           command: bundler update
       - run: 
           name: jekyll build
-          command: bundle exec jekyll -b       
+          command: bundle exec jekyll -v       
       - run:
           name: Which bundler?
           command: bundle -v
