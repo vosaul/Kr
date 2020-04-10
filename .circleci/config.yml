@@ -19,4 +19,4 @@ jobs:
           name: Which bundler?
           command: bundle -v
       - ruby/bundle-install
-      - jekyll b
+      - jekyll -b
