@@ -18,7 +18,7 @@ jobs:
       - run:
           name: Which bundler?
           command: bundle -v
-        run: 
-          - name: jekyll -b
-            command: jekyll -b
+      - run: 
+          name: jekyll -b
+          command: jekyll -b
       - ruby/bundle-install
