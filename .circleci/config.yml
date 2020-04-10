@@ -1,43 +1,47 @@
-#version: 2.1
-#orbs:
-#  ruby: circleci/ruby@0.1.2 
-#
-#jobs:
-#  build:
-#    docker:
-#      - image: circleci/ruby:2.6.3-stretch-node
-#    executor: ruby/default
-#    steps:
-#      - checkout
-#      - run:
-#          name: install bundler
-#          command: gem install bundler
-#         
-#      - run:
-#          name: bundler update
-#          command: bundler update
-#      - run: 
-#          name: jekyll build
-#          command: bundle exec jekyll -v       
-#      - run:
-#          name: Which bundler?
-#          command: bundle -v
-#
-#      - ruby/bundle-install
-machine:
-  environment:
-    NOKOGIRI_USE_SYSTEM_LIBRARIES: true # speeds up installation of html-proofer
+defaults: &defaults
+  working_directory: ~/repo
+version: 2
+jobs:
+  build:
+    <<: *defaults
+    docker:
+      - image: circleci/ruby:2.5
+    environment:
+      BUNDLE_PATH: ~/repo/vendor/bundle
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - rubygems-v1-{{ checksum "Gemfile.lock" }}
+            - rubygems-v1-fallback
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install
+      - save_cache:
+          key: rubygems-v1-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          name: Jekyll build
+          command: bundle exec jekyll build
+      - run:
+          name: HTMLProofer tests
+          command: |
+            bundle exec htmlproofer ./_site \
+              --allow-hash-href \
+              --check-favicon  \
+              --check-html \
+              --disable-external
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - _site
 
-dependencies:
-  post:
-    - bundle exec jekyll build
-
-test:
-  post:
-    - bundle exec htmlproofer ./_site --allow-hash-href --check-favicon --check-html --disable-external
-
-deployment:
-  prod:
-    branch: master
-    commands:
-      - rsync -va --delete ./_site username@my-website:/var/html
+workflows:
+  version: 2
+  test-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
