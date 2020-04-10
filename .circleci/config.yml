@@ -32,6 +32,15 @@ jobs:
           root: ./
           paths:
             - _site
+      - run:
+          name: Aerobatic install
+          command: npm install aerobatic-cli -g
+      - run:
+          name: Deploing to Aerobatic 
+          command: aero deploy    --directory _site
+
+#  - npm install aerobatic-cli -g
+#  - aero deploy     --commit-url "https://github.com/owner/repo-name/commit/${TRAVIS_COMMIT}"     --directory _site
 
 workflows:
   version: 2
