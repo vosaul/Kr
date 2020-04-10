@@ -15,6 +15,9 @@ jobs:
             - rubygems-v1-{{ checksum "Gemfile.lock" }}
             - rubygems-v1-fallback
       - run:
+          name: Yarn? 
+          command: yarn help
+      - run:
           name: Bundle Install
           command: bundle check || bundle install
       - run:
@@ -32,9 +35,7 @@ jobs:
           root: ./
           paths:
             - _site
-      - run:
-          name: Aerobatic 
-          command: npm install
+
       - run:
           name: Aerobatic install
           command: npm install aerobatic-cli -g
