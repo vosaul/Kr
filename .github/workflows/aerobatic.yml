@@ -13,8 +13,7 @@ on:
     types: [created]
 
 env:
-  AZURE_WEBAPP_NAME: your-app-name    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  secure: ggpadUWUIDEnQJRfvqhbO2PGMey5/6dvnStMlGVFVgURsoDEY0B7rcg5dBc8dsFaK7qtRcomU59YSbgK6UaiPFcO+0zHaz7slTKMbkqV/a6S3AYh7CYGDRUN48wceFZ7KwuD7hDvfMMnxRq3cmbKUh/0fuoBii9ykxHmBV0LRiVbzlTPgPy/enPit8FcBoZ0Dt3pIWx1QIsha4AYSj1B81/XUcpBK67XGhqbanpIRA8GlwyhrvZM6KeHabY5atyXnqkyS5UycMASkvjistywzKbqkV6JrRdf9CtBZ8vJYohyqV+Vb1Vt36kRlNburpqSH18E02RvLO0ve2w8K7/P3GQ2W9yosTojpFSw3dLj0YwUbYwSp7CAvB3+tROXDKf9Shprs2dtusBMUTegGEVeetqliCjWEBm+8zvDybipPhcctvfxV+CynbiRfCbOo6fTSeBpxjUc+EXGAiaXRNshja7MEnUwk+B7/BOkmZMFcHC1lgYi29W+5ZA6eGiNBkU6mTu09bpSJc9uzMEzosTk1bArSTSeJQLyBj9EljErTWJSwgjRQz+Jhb1I/sHt2GLssEYKWxWjFh5ughOEvd2cjE3X5uzzn8KvPyO+zVThgLeeu+jyreWlyetxIteza4wdrZQCjpHfMibzdUxG1eD1q7CAlKpka/zaCkPxNBoqxU4=
   NODE_VERSION: '10.x'                # set this to the node version to use
 
 jobs:
@@ -34,9 +33,9 @@ jobs:
         npm install
         npm run build --if-present
         npm run test --if-present
-    - name: 'Deploy to Azure WebApp'
-      uses: azure/webapps-deploy@v2
+    - name: 'Deploy to Aerobatic'
+      uses: aerobatic/webapps-deploy@v2
       with:
-        app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        app-name: ${{ env.WEBAPP_NAME }}
+        publish-profile: ${{ secrets.WEBAPP_PUBLISH_PROFILE }}
+        package: ${{ env.WEBAPP_PACKAGE_PATH }}
