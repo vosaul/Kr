@@ -19,7 +19,6 @@ jobs:
         ruby-version: 2.6.x
     - name: Build and test
       run: |
-        rm gemfile.lock
         gem install bundler
         bundle install --jobs 4 --retry 3
         bundle update jekyll
