@@ -33,6 +33,9 @@ jobs:
           paths:
             - _site
       - run:
+          name: Aerobatic 
+          command: npm install
+      - run:
           name: Aerobatic install
           command: npm install aerobatic-cli -g
       - run:
